@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Members" section_id="0d72165b1b56001044924196bc4bcbac" sys_domain="global" table="x_209235_f5_ssc_pt_pool_member_operations" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>pool_members</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:19:52</sys_created_on>
+            <sys_id>5d72165b1b56001044924196bc4bcbdc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Members" display_value="Members" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">0d72165b1b56001044924196bc4bcbac</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-17 20:19:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>pool</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:19:52</sys_created_on>
+            <sys_id>dd72165b1b56001044924196bc4bcbdc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Members" display_value="Members" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">0d72165b1b56001044924196bc4bcbac</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-17 20:19:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>bigip_cluster</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:19:52</sys_created_on>
+            <sys_id>5172165b1b56001044924196bc4bcbdd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Members" display_value="Members" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">0d72165b1b56001044924196bc4bcbac</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-17 20:19:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>operation</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:19:52</sys_created_on>
+            <sys_id>d172165b1b56001044924196bc4bcbdd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Members" display_value="Members" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">0d72165b1b56001044924196bc4bcbac</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-17 20:19:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Members</caption>
+            <header>false</header>
+            <name>x_209235_f5_ssc_pt_pool_member_operations</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:19:52</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0d72165b1b56001044924196bc4bcbac</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Members</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+            <sys_update_name>sys_ui_section_0d72165b1b56001044924196bc4bcbac</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-17 20:19:52</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

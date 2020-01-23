@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Virtual Server Operations" max_length="40" name="x_209235_f5_ssc_pt_virtual_server_operations" type="collection">
+        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="32" name="bigip_cluster" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" label="Operation" mandatory="true" max_length="40" name="operation" type="choice">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="Remove" sequence="0" value="remove"/>
+                <element inactive_on_update="false" label="Remove &amp; Clean" sequence="0" value="clean"/>
+            </choice>
+        </element>
+        <element choice="1" default="pending" label="Virtual Server" mandatory="true" max_length="40" name="virtual_server" type="string">
+            <choice>
+                <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="bigip_cluster"/>
+        </index>
+    </element>
+</database>

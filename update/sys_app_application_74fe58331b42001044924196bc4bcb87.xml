@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="">Custom Applications</category>
+        <description>F5 Prototype App for SSC</description>
+        <device_type>browser</device_type>
+        <hint>F5 Prototype App for SSC</hint>
+        <name/>
+        <order/>
+        <roles>x_209235_f5_ssc_pt.f5_admin</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-06 14:56:28</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>74fe58331b42001044924196bc4bcb87</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>F5 SSC </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_app_application_74fe58331b42001044924196bc4bcb87</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-06 19:08:45</sys_updated_on>
+        <title>F5 SSC </title>
+        <view_name/>
+    </sys_app_application>
+</record_update>

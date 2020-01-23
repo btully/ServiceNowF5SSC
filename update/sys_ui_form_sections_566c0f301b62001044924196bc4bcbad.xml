@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="566c0f301b62001044924196bc4bcbad" sys_domain="global" table="x_209235_f5_ssc_pt_pool_member_operations" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-22 16:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>926c0f301b62001044924196bc4bcbb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_pool_member_operations" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">566c0f301b62001044924196bc4bcbad</sys_ui_form>
+            <sys_ui_section caption="Pool Member Operations" display_value="Pool Member Operations" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">ff91dad71b56001044924196bc4bcb66</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-22 16:23:58</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:22:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7da554911b26401044924196bc4bcb14</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_pool_member_operations" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">566c0f301b62001044924196bc4bcbad</sys_ui_form>
+            <sys_ui_section caption="Step 1 - Select Operation" display_value="Step 1 - Select Operation" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">fda554911b26401044924196bc4bcb0e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:22:27</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:22:27</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>bda554911b26401044924196bc4bcb49</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_pool_member_operations" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">566c0f301b62001044924196bc4bcbad</sys_ui_form>
+            <sys_ui_section caption="Step 2 - Enter Pool Members" display_value="Step 2 - Enter Pool Members" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">79a554911b26401044924196bc4bcb0f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:22:27</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-22 18:44:19</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>928c2bfc1ba2001044924196bc4bcba9</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_pool_member_operations" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">566c0f301b62001044924196bc4bcbad</sys_ui_form>
+            <sys_ui_section caption="Step 3 - Select Target Details" display_value="Step 3 - Select Target Details" name="x_209235_f5_ssc_pt_pool_member_operations" sys_domain="global" view="Default view">de8c2bfc1ba2001044924196bc4bcba5</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:22:27</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_209235_f5_ssc_pt_pool_member_operations</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-22 16:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>566c0f301b62001044924196bc4bcbad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_209235_f5_ssc_pt_pool_member_operations</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+            <sys_update_name>sys_ui_form_sections_566c0f301b62001044924196bc4bcbad</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-22 16:23:58</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on x_209235_f5_ssc_pt_pool_member_operations</description>
+        <name>x_209235_f5_ssc_pt_pool_member_operations</name>
+        <operation display_value="delete">delete</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-17 20:11:56</sys_created_on>
+        <sys_id>45a05a971b56001044924196bc4bcbc7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_209235_f5_ssc_pt_pool_member_operations</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_security_acl_45a05a971b56001044924196bc4bcbc7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-17 20:11:56</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

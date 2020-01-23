@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="1bcf8d331b06001044924196bc4bcbe2" sys_domain="global" table="x_209235_f5_ssc_pt_big_ip_cluster" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-06 18:29:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>13cf8d331b06001044924196bc4bcbe6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_big_ip_cluster" name="x_209235_f5_ssc_pt_big_ip_cluster" sys_domain="global" view="Default view">1bcf8d331b06001044924196bc4bcbe2</sys_ui_form>
+            <sys_ui_section caption="Big-IP Cluster Details (HA pair)" display_value="Big-IP Cluster Details (HA pair)" name="x_209235_f5_ssc_pt_big_ip_cluster" sys_domain="global" view="Default view">f96f4dbf1bc2001044924196bc4bcbf1</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-06 18:29:54</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_209235_f5_ssc_pt_big_ip_cluster</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-06 18:29:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>1bcf8d331b06001044924196bc4bcbe2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_209235_f5_ssc_pt_big_ip_cluster</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+            <sys_update_name>sys_ui_form_sections_1bcf8d331b06001044924196bc4bcbe2</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-06 18:29:54</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

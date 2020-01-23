@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>inventoryImport</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2020-01-07 14:55:38</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[var app = new appUtils();
+var f5App = new f5ApiHelper();
+
+var clusterGr = new GlideRecord(app.clusterTable);
+clusterGr.query();
+while (clusterGr.next()) {
+	// Get Active Device 
+	var device = f5App.getActiveDevice(clusterGr);
+	if (!device){
+		gs.error("Cannot retrive BigIP inventory for " + clusterGr.getValue('cluster_name'));
+		continue;
+	}
+	
+	// Execute pool member inventory poll
+	var poolList = f5App.getPoolList(device);
+	for (var i = 0; i < poolList.length; i++) {		
+		var pool = poolList[i];
+		var poolMembers = f5App.getPoolMembers(device, poolList[i]['fullPath']);
+		for (var j = 0; j < poolMembers.length; j++) {			
+			var mem = poolMembers[j];	
+			var port = parseInt(mem.fullPath.split(":").pop(), 10);
+			var poolMemGr = new GlideRecord(app.poolMemTable);
+			poolMemGr.addQuery('address', mem.address);
+			poolMemGr.addQuery('port', port);
+			poolMemGr.addQuery('cluster', clusterGr.getValue('sys_id'));
+			poolMemGr.addQuery('pool', pool.name);
+			poolMemGr.query();
+			
+			if (!poolMemGr.next()) {
+				poolMemGr.address = mem.address;
+				poolMemGr.port = port;
+				poolMemGr.cluster = clusterGr.getValue('sys_id');
+				poolMemGr.pool = pool.name;
+				poolMemGr.insert();
+			}			
+		}
+	}
+	
+	// Execute virtual server inventory poll
+	var vsList = f5App.getVsList(device);
+	for (i = 0; i < vsList.length; i++) {		
+		var vs = vsList[i];
+		
+		var destSplit1 = vs.destination.split('/').pop();
+		var destSplit2 = destSplit1.split(':');
+		var vsAddress = destSplit2[0];
+		var vsPort = parseInt(destSplit2[1], 10);
+		
+		var vsGr = new GlideRecord(app.vsTable);
+		vsGr.addQuery('address', vsAddress);
+		vsGr.addQuery('port', vsPort);
+		vsGr.addQuery('cluster', clusterGr.getValue('sys_id'));
+		vsGr.addQuery('name', vs.name);
+		vsGr.query();
+
+		if (!vsGr.next()) {
+			vsGr.address = vsAddress;
+			vsGr.port = vsPort;
+			vsGr.cluster = clusterGr.getValue('sys_id');
+			vsGr.name = vs.name;
+			vsGr.full_path = vs.fullPath;
+			vsGr.insert();
+		}			
+	}
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-07 14:56:30</sys_created_on>
+        <sys_id>16582d8c1bd2401044924196bc4bcb9c</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>inventoryImport</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sysauto_script_16582d8c1bd2401044924196bc4bcb9c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-22 23:39:35</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

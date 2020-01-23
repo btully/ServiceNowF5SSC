@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_209235_f5_ssc_pt.f5ApiHelper</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>f5ApiHelper</name>
+        <script><![CDATA[var f5ApiHelper = Class.create();
+f5ApiHelper.prototype = {
+    initialize: function() {
+	},
+	getDeviceDetails: function(device) {
+		var uri = '/mgmt/tm/cm/device/';
+		var data = execRestCall(device, 'GET', uri, null);
+		
+		// Previous API call returns a list of devices.  Must iterate and find
+		// the item where selfDevice == true
+		for (var i = 0; i < data.items.length; i++) {
+			var item = data.items[i];
+			if (item.selfDevice == "true") { 
+				return item; 
+			}
+		}
+		return null;
+	},
+	getActiveDevice: function(clusterRec) {		
+		var device = {
+			port: 443, 
+			username: clusterRec.getValue('username'), 
+			password: clusterRec.password.getDecryptedValue(),
+			midServer: clusterRec.getValue('mid_server')
+		};
+
+		// Check if device 1 is active
+		device.ip = clusterRec.getValue('device_1_ip');
+		var dev1Data = this.getDeviceDetails(device);
+		if (dev1Data.failoverState == "active") { 
+			return device; 
+		}
+		
+		// Check if device 2 is active
+		if (clusterRec.getValue('device_2_ip')) {
+			device.ip = clusterRec.getValue('device_2_ip');
+			var dev2Data = this.getDeviceDetails(device);
+			if (dev2Data.failoverState == "active") { 
+			return device; 
+			}
+		}
+		
+		// If neither device is active return null
+		return null;
+	},
+	getVsList: function(device) {
+		var uri = '/mgmt/tm/ltm/virtual';
+		var data = execRestCall(device, 'GET', uri, null);
+		if (data.items) {
+			return data.items;
+		}
+		return [];
+	},
+	getPoolList: function(device) {
+		var uri = '/mgmt/tm/ltm/pool';
+		var data = execRestCall(device, 'GET', uri, null);
+		if (data.items) {
+			return data.items;
+		}
+		return [];
+	},
+	getPoolMembers: function(device, poolPath) {
+		var uri = '/mgmt/tm/ltm/pool/' + poolPath.replace(/\//g,'~') + '/members';
+		var data = execRestCall(device, 'GET', uri, null);
+		if (data.items) {
+			return data.items;
+		}
+		return [];
+	},
+    type: 'f5ApiHelper'
+};
+
+function execRestCall(device, method, uri, data) {
+	var restMessage = new sn_ws.RESTMessageV2();
+	restMessage.setBasicAuth(device.username, device.password);
+	restMessage.setEndpoint("https://" + device.ip + ":" + device.port + uri);
+	restMessage.setMIDServer(device.midServer);
+	restMessage.setHttpMethod(method);
+	if (data){
+		restMessage.setRequestBody(JSON.stringify(data));
+	}
+
+	var response = restMessage.execute();
+	var status = response.getStatusCode();
+	var responseBody = response.getBody();
+	
+// 	gs.info("METHOD: " + method);
+// 	gs.info("REQ BODY: " + restMessage.getRequestBody());
+// 	gs.info("RESPONSE ERROR: " + response.getErrorMessage());
+// 	gs.info("RESPONSE STATUS: " + status);
+// 	gs.info("RESPONSE BODY: " + JSON.stringify(JSON.parse(responseBody)));
+	
+	if (response.haveError()) {
+		return null;
+	}
+	return JSON.parse(responseBody);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-06 18:46:35</sys_created_on>
+        <sys_id>b61395771b06001044924196bc4bcbfe</sys_id>
+        <sys_mod_count>39</sys_mod_count>
+        <sys_name>f5ApiHelper</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_script_include_b61395771b06001044924196bc4bcbfe</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 17:25:25</sys_updated_on>
+    </sys_script_include>
+</record_update>

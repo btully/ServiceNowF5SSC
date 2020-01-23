@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_209235_f5_ssc_pt.appUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>appUtils</name>
+        <script><![CDATA[var appUtils = Class.create();
+appUtils.prototype = {
+    initialize: function() {
+		this.clusterTable = 'x_209235_f5_ssc_pt_big_ip_cluster';
+		this.poolMemTable = 'x_209235_f5_ssc_pt_ltm_pool_members';
+		this.vsTable = 'x_209235_f5_ssc_pt_ltm_virtual_servers';
+		this.poolMemOpTable = 'x_209235_f5_ssc_pt_pool_member_operations';
+    },
+	getMidServers: function() {
+		var gr = new GlideRecord('ecc_agent');
+		gr.query();
+		
+		var midServList = [];
+		while (gr.next()) {
+			midServList.push({
+				name: gr.getValue('name')
+			});
+		}
+		return midServList;
+	},
+	getClusters: function() {
+		var clusterList = [];
+		var gr = new GlideRecord(this.clusterTable);
+		gr.query();
+		while(gr.next()) {
+			clusterList.push({
+				clusterName: gr.getValue('cluster_name'),
+				sysId: gr.getValue('sys_id')
+			});
+		}
+		return clusterList;
+	},
+	getClusterName: function(refId) {
+		var gr = new GlideRecord(this.clusterTable);
+		gr.addQuery('sys_id', refId);
+		gr.query();
+		
+		if(gr.next()) {
+			return gr.getValue('cluster_name');
+		}
+		return null;
+	},
+	getPoolsByCluster: function(refId) {
+		var gr = new GlideRecord(this.poolMemTable);
+		gr.addQuery('cluster', refId);
+		gr.query();
+		
+		var poolList = [];
+		while(gr.next()) {
+			var pool = gr.getValue('pool');
+			if (!(poolList.indexOf(pool) > -1)) { 
+					poolList.push(pool);
+			}
+		}
+		return poolList;
+	},
+	getVirtualsByCluster: function(refId) {
+		var gr = new GlideRecord(this.vsTable);
+		gr.addQuery('cluster', refId);
+		gr.query();
+		
+		var vsList = [];
+		while(gr.next()) {
+			var vsName = gr.getValue('name');
+			if (!(vsList.indexOf(vsName) > -1)) { 
+					vsList.push(vsName);
+			}
+		}
+		return vsList;
+	},
+	getPoolMemDeps: function(memberList) {
+		var depMap = {};
+		// Iterate through the pool member list to build a dependency map
+		for (var i = 0; i < memberList.length; i++) {
+			var address = memberList[i].address;
+			var port = memberList[i].port;
+			
+			// Get all pool member records for this address and port 
+			var gr = new GlideRecord(this.poolMemTable);
+			gr.addQuery('address', address);
+			gr.addQuery('port', parseInt(port, 10));
+			gr.query();
+			
+			// Push pool member record into the dependency map
+			while (gr.next()) {
+				var cluster = this.getClusterName(gr.getValue('cluster'));
+				var pool = gr.getValue('pool');
+				var key = pool + ' (' + cluster + ')'; 
+				
+				if (key in depMap) {
+					depMap[key]['members'].push(address + ':' + port);
+				} else {
+					depMap[key] = {
+						pool: pool,
+						clusterName: cluster,
+						members: [address + ':' + port]
+					};
+				}
+			}
+		}
+		
+		// Compare Pool Member list against dependency map to find common 
+		//   pools and clusters
+		var commonDeps = [];
+		for (key in depMap) {
+			var members = depMap[key]['members'];
+			
+			var miss = false;
+			for (i = 0; i < memberList.length; i++) {
+				var member = memberList[i].address + ':' + memberList[i].port;
+				
+				if (!(members.indexOf(member) > -1)) { 
+					miss = true;
+				}
+			}
+			if (!miss) {
+				commonDeps.push({pool: depMap[key]['pool'], clusterName: depMap[key]['clusterName']});
+			}
+		}
+		return commonDeps;
+	},
+    type: 'appUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-22 20:41:39</sys_created_on>
+        <sys_id>a98684c91b26001044924196bc4bcb04</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>appUtils</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_script_include_a98684c91b26001044924196bc4bcb04</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 20:01:09</sys_updated_on>
+    </sys_script_include>
+</record_update>

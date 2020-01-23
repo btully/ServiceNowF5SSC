@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="pool_members" label="Pool Members (comma delimited)" language="en" table="x_209235_f5_ssc_pt_pool_member_operations">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>pool_members</element>
+            <help/>
+            <hint/>
+            <label>Pool Members (comma delimited)</label>
+            <language>en</language>
+            <name>x_209235_f5_ssc_pt_pool_member_operations</name>
+            <plural>Pool Members (comma delimited)</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-17 20:11:56</sys_created_on>
+            <sys_id>cda05a971b56001044924196bc4bcbf1</sys_id>
+            <sys_mod_count>6</sys_mod_count>
+            <sys_name>Pool Members (comma delimited)</sys_name>
+            <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+            <sys_update_name>sys_documentation_x_209235_f5_ssc_pt_pool_member_operations_pool_members_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 17:19:31</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

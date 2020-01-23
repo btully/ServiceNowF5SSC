@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>bigip_cluster</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>pmo-onLoad</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	var pMems = g_form.getValue('pool_members');
+	if (pMems == '') {
+		g_form.setReadOnly("pool", true);
+		g_form.setReadOnly("bigip_cluster", true);
+	}
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-22 17:03:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>bcc413781b62001044924196bc4bcbdd</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>pmo-onLoad</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_script_client_bcc413781b62001044924196bc4bcbdd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 20:05:40</sys_updated_on>
+        <table>x_209235_f5_ssc_pt_pool_member_operations</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="LTM Pool Members" max_length="40" name="x_209235_f5_ssc_pt_ltm_pool_members" type="collection">
+        <element label="Address" max_length="40" name="address" type="ip_addr"/>
+        <element label="Cluster" max_length="32" name="cluster" reference="x_209235_f5_ssc_pt_big_ip_cluster" type="reference"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Pool" max_length="40" name="pool" type="string"/>
+        <element label="Port" max_length="40" name="port" type="integer"/>
+        <index name="index">
+            <element name="cluster"/>
+        </index>
+    </element>
+</database>

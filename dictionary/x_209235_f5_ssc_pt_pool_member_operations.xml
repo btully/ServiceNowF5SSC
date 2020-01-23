@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Pool Member Operations" max_length="40" name="x_209235_f5_ssc_pt_pool_member_operations" type="collection">
+        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="40" name="bigip_cluster" type="choice">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="BigIP-pair-01" sequence="0" value="BigIP-pair-01"/>
+                <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element choice="1" label="Operation" mandatory="true" max_length="40" name="operation" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Add" value="present"/>
+                <element inactive_on_update="false" label="Disable" value="disabled"/>
+                <element inactive_on_update="false" label="Enable" value="enabled"/>
+                <element inactive_on_update="false" label="Remove" value="absent"/>
+            </choice>
+        </element>
+        <element choice="1" default="pending" label="Pool" mandatory="true" max_length="40" name="pool" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
+            </choice>
+        </element>
+        <element label="Pool Members (comma delimited)" mandatory="true" max_length="128" name="pool_members" type="string"/>
+    </element>
+</database>

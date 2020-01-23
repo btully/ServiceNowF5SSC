@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>bigip_cluster</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>vo-onLoad</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+	g_form.setReadOnly("virtual_server", true);
+	g_form.setReadOnly("bigip_cluster", true);
+	
+	// Retrieve Pool member Cluster and Pool Dependencies
+	var ga = new GlideAjax('ajaxUtils');
+	ga.addParam('sysparm_name', 'getClusters');
+	ga.getXML(parseMessage);
+}
+
+function parseMessage(response) {
+	// Clear the default/previous options
+	g_form.clearOptions('bigip_cluster');
+	
+	// Add common pools and clusters returned from AJAX query
+	var data = JSON.parse(response.responseXML.documentElement.getAttribute('answer'));
+	data.forEach(function (item) {
+			g_form.addOption('bigip_cluster', item.sysId, item.clusterName);
+	});
+
+	// Allow users to modify fields
+	g_form.setReadOnly('bigip_cluster', false);
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-23 20:15:19</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a2d905151be6401044924196bc4bcb27</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>vo-onLoad</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_script_client_a2d905151be6401044924196bc4bcb27</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 20:15:19</sys_updated_on>
+        <table>x_209235_f5_ssc_pt_virtual_server_operations</table>
+        <type>onLoad</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

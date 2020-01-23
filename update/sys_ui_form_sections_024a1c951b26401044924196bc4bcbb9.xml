@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="024a1c951b26401044924196bc4bcbb9" sys_domain="global" table="x_209235_f5_ssc_pt_virtual_server_operations" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:42:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8a4a1c951b26401044924196bc4bcbbb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_virtual_server_operations" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">024a1c951b26401044924196bc4bcbb9</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">ba635cdd1be2401044924196bc4bcb51</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:42:40</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:42:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>464a1c951b26401044924196bc4bcbbc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_virtual_server_operations" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">024a1c951b26401044924196bc4bcbb9</sys_ui_form>
+            <sys_ui_section caption="Step 1 - Select Operation" display_value="Step 1 - Select Operation" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">8a4a1c951b26401044924196bc4bcbb7</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:42:40</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:42:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c64a1c951b26401044924196bc4bcbbf</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_209235_f5_ssc_pt_virtual_server_operations" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">024a1c951b26401044924196bc4bcbb9</sys_ui_form>
+            <sys_ui_section caption="Step 2 - Select Target" display_value="Step 2 - Select Target" name="x_209235_f5_ssc_pt_virtual_server_operations" sys_domain="global" view="Default view">824a1c951b26401044924196bc4bcbb8</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:42:40</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_209235_f5_ssc_pt_virtual_server_operations</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2020-01-23 16:42:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>024a1c951b26401044924196bc4bcbb9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_209235_f5_ssc_pt_virtual_server_operations</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+            <sys_update_name>sys_ui_form_sections_024a1c951b26401044924196bc4bcbb9</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2020-01-23 16:42:40</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

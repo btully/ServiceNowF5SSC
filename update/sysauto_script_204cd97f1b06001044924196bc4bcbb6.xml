@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>tester</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2020-01-06 19:24:20</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>on_demand</run_type>
+        <script><![CDATA[//var f5App = new f5ApiHelper();
+var appUtils = new appUtils();
+
+//var midservs = appUtils.getMidServers();
+//gs.info(JSON.stringify(midservs));
+
+//var cname = appUtils.getClusterName('23716eff1b0a001044924196bc4bcb82');
+//gs.info(JSON.stringify(cname));
+
+var pools = appUtils.getPoolsByCluster('23716eff1b0a001044924196bc4bcb82');
+gs.info(JSON.stringify(pools));
+
+//var device = {ip: '10.1.1.4', port: 443, username: 'admin', password: 'admin'};
+//var midServer = 'udf_lab';
+
+//gs.info(JSON.stringify(f5App.getDeviceDetails(device, midServer)));
+
+//f5App.getPoolMembers(device, midServer);
+
+//var poolPath = '/Common/pair1-pool1';
+//f5App.getPoolMembers(device, midServer, poolPath);
+
+
+// var tmp = appUtils.getPoolMemDeps([ {address: '1.1.1.1', port: '80'}, {address: '1.1.1.2', port: '80'} ]);
+
+// gs.info(JSON.stringify(tmp));]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-06 19:27:59</sys_created_on>
+        <sys_id>204cd97f1b06001044924196bc4bcbb6</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>tester</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sysauto_script_204cd97f1b06001044924196bc4bcbb6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 00:17:17</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Big-IP Cluster" max_length="40" name="x_209235_f5_ssc_pt_big_ip_cluster" type="collection">
+        <element label="Cluster Name" mandatory="true" max_length="64" name="cluster_name" type="string"/>
+        <element label="Device 1 IP" mandatory="true" max_length="40" name="device_1_ip" type="ip_addr"/>
+        <element label="Device 2 IP" max_length="40" name="device_2_ip" type="ip_addr"/>
+        <element choice="1" label="Mid Server" mandatory="true" max_length="40" name="mid_server" type="choice">
+            <choice/>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Password" mandatory="true" max_length="256" name="password" type="password2"/>
+        <element default="admin" label="Username" mandatory="true" max_length="64" name="username" type="string"/>
+    </element>
+</database>

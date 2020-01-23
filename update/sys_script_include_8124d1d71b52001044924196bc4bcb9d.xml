@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_209235_f5_ssc_pt.ansibleApiHelper</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>ansibleApiHelper</name>
+        <script><![CDATA[var ansibleApiHelper = Class.create();
+ansibleApiHelper.prototype = {
+    initialize: function() {
+		this.server = {
+			ip: gs.getProperty('x_209235_f5_ssc_pt.ansibleServer'),
+			port: gs.getProperty('x_209235_f5_ssc_pt.ansiblePort'),
+			username: gs.getProperty('x_209235_f5_ssc_pt.ansibleUsername'),
+			password: gs.getProperty('x_209235_f5_ssc_pt.ansiblePassword'),
+			midServer: gs.getProperty('x_209235_f5_ssc_pt.ansibleMidServer')
+		};
+    },
+	launchPmOpsJob: function(extra_vars) {	
+		var templateId = gs.getProperty('x_209235_f5_ssc_pt.ansiblePoolMemTmpl');
+		var uri = "/api/v2/job_templates/" + templateId + "/launch/";
+		var data = { extra_vars: extra_vars };
+		
+		return execRestCall(this.server, "POST", uri, data);
+	},
+	launchVsCleanUpJob: function(extra_vars) {	
+		var templateId = gs.getProperty('x_209235_f5_ssc_pt.ansibleVirtCleanTmpl');
+		var uri = "/api/v2/job_templates/" + templateId + "/launch/";
+		var data = { extra_vars: extra_vars };
+		
+		return execRestCall(this.server, "POST", uri, data);
+	},
+	
+    type: 'ansibleApiHelper'
+};
+
+function execRestCall(server, method, uri, data) {
+	var restMessage = new sn_ws.RESTMessageV2();
+	restMessage.setBasicAuth(server.username, server.password);
+	restMessage.setEndpoint("https://" + server.ip + ":" + server.port + uri);
+	restMessage.setMIDServer(server.midServer);
+	restMessage.setHttpMethod(method);
+	restMessage.setRequestHeader("Content-Type","application/json");
+	if (data){
+		restMessage.setRequestBody(JSON.stringify(data));
+	}
+	try {
+		var response = restMessage.execute();
+	} catch (err) {
+		gs.error("Ansible job launch failed");
+		return null;
+	}
+	var status = response.getStatusCode();
+	var responseBody = response.getBody();
+	
+// 	gs.info("METHOD: " + method);
+// 	gs.info("REQ BODY: " + restMessage.getRequestBody());
+// 	gs.info("RESPONSE ERROR: " + response.getErrorMessage());
+// 	gs.info("RESPONSE STATUS: " + status);
+// 	gs.info("RESPONSE BODY: " + JSON.stringify(JSON.parse(responseBody)));
+	
+	if (response.haveError()) {
+		return null;
+	}
+	return JSON.parse(responseBody);
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-17 15:49:15</sys_created_on>
+        <sys_id>8124d1d71b52001044924196bc4bcb9d</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>ansibleApiHelper</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_script_include_8124d1d71b52001044924196bc4bcb9d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-23 17:46:17</sys_updated_on>
+    </sys_script_include>
+</record_update>

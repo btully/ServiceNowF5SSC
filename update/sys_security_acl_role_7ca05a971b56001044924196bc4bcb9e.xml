@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-17 20:11:56</sys_created_on>
+        <sys_id>7ca05a971b56001044924196bc4bcb9e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_209235_f5_ssc_pt_pool_member_operations.x_209235_f5_ssc_pt.f5_admin</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_security_acl display_value="x_209235_f5_ssc_pt_pool_member_operations">3ca05a971b56001044924196bc4bcb81</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_7ca05a971b56001044924196bc4bcb9e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-17 20:11:56</sys_updated_on>
+        <sys_user_role display_value="x_209235_f5_ssc_pt.f5_admin" name="x_209235_f5_ssc_pt.f5_admin">452e5c331b42001044924196bc4bcbbb</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

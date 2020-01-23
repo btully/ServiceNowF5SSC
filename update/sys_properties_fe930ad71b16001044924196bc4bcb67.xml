@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Ansible Tower Username </description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_209235_f5_ssc_pt.ansibleUsername</name>
+        <read_roles>x_209235_f5_ssc_pt.f5_admin</read_roles>
+        <suffix>ansibleUsername</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-17 19:15:40</sys_created_on>
+        <sys_id>fe930ad71b16001044924196bc4bcb67</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_209235_f5_ssc_pt.ansibleUsername</sys_name>
+        <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
+        <sys_update_name>sys_properties_fe930ad71b16001044924196bc4bcb67</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-01-17 19:24:01</sys_updated_on>
+        <type>string</type>
+        <value>admin</value>
+        <write_roles>x_209235_f5_ssc_pt.f5_admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=fe930ad71b16001044924196bc4bcb67"/>
+</record_update>
