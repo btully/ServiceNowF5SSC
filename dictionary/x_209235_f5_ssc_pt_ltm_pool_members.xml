@@ -5,6 +5,7 @@
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element label="Pool" max_length="40" name="pool" type="string"/>
         <element label="Port" max_length="40" name="port" type="integer"/>
+        <element label="Verified" max_length="40" name="verified" type="boolean"/>
         <index name="index">
             <element name="cluster"/>
         </index>

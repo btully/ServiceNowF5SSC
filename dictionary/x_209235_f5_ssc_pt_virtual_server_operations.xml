@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Virtual Server Operations" max_length="40" name="x_209235_f5_ssc_pt_virtual_server_operations" type="collection">
-        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="32" name="bigip_cluster" type="choice">
+        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="32" name="bigip_cluster" reference="x_209235_f5_ssc_pt_big_ip_cluster" type="choice">
             <choice>
                 <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
             </choice>

@@ -56,7 +56,7 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
-        <sys_ui_section action="INSERT_OR_UPDATE">
+        <sys_ui_section action="DELETE">
             <caption>New Section</caption>
             <header>false</header>
             <name>x_209235_f5_ssc_pt_big_ip_cluster</name>

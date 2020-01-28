@@ -29,9 +29,11 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 	var ansible = new ansibleApiHelper();
+	var app = new appUtils();
 	
+	var cluster = current.getValue('bigip_cluster');
 	var extra_vars = {
-		cluster: current.getValue('bigip_cluster')
+		cluster: cluster
 	};
 	
 	var poolMems = current.getValue('pool_members');
@@ -50,8 +52,12 @@
 		pm_ops.push({ member_ip: ip, member_port: port, pool: pool, state: operation });
 	}
 	extra_vars.pool_member_ops = pm_ops;
-	
 	ansible.launchPmOpsJob(extra_vars);
+	
+	// Remove records if operation is to remove
+	if (operation == 'absent') {
+		app.removePoolMems(cluster, pm_ops);
+	}
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -60,7 +66,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ee831a9b1b56001044924196bc4bcb0b</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>launchPoolMemJob</sys_name>
         <sys_overrides/>
         <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
@@ -68,7 +74,7 @@
         <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
         <sys_update_name>sys_script_ee831a9b1b56001044924196bc4bcb0b</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-01-22 23:55:21</sys_updated_on>
+        <sys_updated_on>2020-01-28 14:58:22</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

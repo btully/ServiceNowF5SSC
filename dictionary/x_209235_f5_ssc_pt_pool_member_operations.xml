@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Pool Member Operations" max_length="40" name="x_209235_f5_ssc_pt_pool_member_operations" type="collection">
-        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="40" name="bigip_cluster" type="choice">
+        <element choice="1" default="pending" label="BigIP Cluster" mandatory="true" max_length="40" name="bigip_cluster" reference="x_209235_f5_ssc_pt_big_ip_cluster" type="choice">
             <choice>
                 <element inactive="true" inactive_on_update="true" label="BigIP-pair-01" sequence="0" value="BigIP-pair-01"/>
                 <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>

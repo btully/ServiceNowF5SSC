@@ -49,6 +49,16 @@ appUtils.prototype = {
 		}
 		return null;
 	},
+	getClusterId: function(name) {
+		var gr = new GlideRecord(this.clusterTable);
+		gr.addQuery('name', name);
+		gr.query();
+		
+		if(gr.next()) {
+			return gr.getValue('sys_id');
+		}
+		return null;
+	},
 	getPoolsByCluster: function(refId) {
 		var gr = new GlideRecord(this.poolMemTable);
 		gr.addQuery('cluster', refId);
@@ -77,6 +87,7 @@ appUtils.prototype = {
 		}
 		return vsList;
 	},
+
 	getPoolMemDeps: function(memberList) {
 		var depMap = {};
 		// Iterate through the pool member list to build a dependency map
@@ -92,16 +103,16 @@ appUtils.prototype = {
 			
 			// Push pool member record into the dependency map
 			while (gr.next()) {
-				var cluster = this.getClusterName(gr.getValue('cluster'));
+				var clusterName = this.getClusterName(gr.getValue('cluster'));
 				var pool = gr.getValue('pool');
-				var key = pool + ' (' + cluster + ')'; 
+				var key = pool + '|' + clusterName; 
 				
 				if (key in depMap) {
 					depMap[key]['members'].push(address + ':' + port);
 				} else {
 					depMap[key] = {
 						pool: pool,
-						clusterName: cluster,
+						cluster: { name: clusterName, sysId: gr.getValue('cluster') },
 						members: [address + ':' + port]
 					};
 				}
@@ -123,10 +134,26 @@ appUtils.prototype = {
 				}
 			}
 			if (!miss) {
-				commonDeps.push({pool: depMap[key]['pool'], clusterName: depMap[key]['clusterName']});
+				commonDeps.push({pool: depMap[key]['pool'], cluster: depMap[key]['cluster']});
 			}
 		}
 		return commonDeps;
+	},
+	removePoolMems: function(cluster, memberList) {
+		for (var i in memberList) {
+			var mem = memberList[i];
+					
+			var gr = new GlideRecord(this.poolMemTable);
+			gr.addQuery('address', mem.member_ip);
+			gr.addQuery('port', mem.member_port);
+			gr.addQuery('cluster', cluster);
+			gr.addQuery('pool', mem.pool);
+			gr.query();
+			
+			if (gr.next()) {
+				gr.deleteRecord();
+			}
+		}
 	},
     type: 'appUtils'
 };]]></script>
@@ -134,13 +161,13 @@ appUtils.prototype = {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-01-22 20:41:39</sys_created_on>
         <sys_id>a98684c91b26001044924196bc4bcb04</sys_id>
-        <sys_mod_count>35</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_name>appUtils</sys_name>
         <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
         <sys_update_name>sys_script_include_a98684c91b26001044924196bc4bcb04</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-01-23 20:01:09</sys_updated_on>
+        <sys_updated_on>2020-01-28 14:56:42</sys_updated_on>
     </sys_script_include>
 </record_update>

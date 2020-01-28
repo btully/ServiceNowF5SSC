@@ -3,7 +3,7 @@
         <active>true</active>
         <condition/>
         <conditional>false</conditional>
-        <name>launchAnsibleJob</name>
+        <name>launchAnsibleJobExample</name>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
         <run_dayofmonth>1</run_dayofmonth>
@@ -25,14 +25,14 @@ ansible.launchVsCleanUpJob(extra_vars);]]></script>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-01-17 16:27:43</sys_created_on>
         <sys_id>8d2d1ddf1b52001044924196bc4bcb19</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>launchAnsibleJob</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>launchAnsibleJobExample</sys_name>
         <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
         <sys_policy/>
         <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
         <sys_update_name>sysauto_script_8d2d1ddf1b52001044924196bc4bcb19</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-01-23 17:55:06</sys_updated_on>
+        <sys_updated_on>2020-01-27 19:25:26</sys_updated_on>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
 </record_update>
