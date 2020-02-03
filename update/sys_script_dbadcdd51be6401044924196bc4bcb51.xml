@@ -31,15 +31,17 @@
 	var ansible = new ansibleApiHelper();
 	var app = new appUtils();
 	
-	var extra_vars = {
-		cluster: app.getClusterName(current.getValue('bigip_cluster')),
-		vs: current.getValue('virtual_server')
-	};
+	var cluster = current.getValue('bigip_cluster');
+	var vsName = current.getValue('virtual_server');
 	
-	gs.info("ththth: " + JSON.stringify(extra_vars));
+	var extra_vars = {
+		cluster: app.getClusterName(cluster),
+		vs: vsName
+	};
 	
 	if (current.getValue('operation') == 'clean') {
 		ansible.launchVsCleanUpJob(extra_vars);
+		app.removeVs(cluster, vsName);
 	}
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -48,7 +50,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>dbadcdd51be6401044924196bc4bcb51</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>launchVsJob</sys_name>
         <sys_overrides/>
         <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
@@ -56,7 +58,7 @@
         <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
         <sys_update_name>sys_script_dbadcdd51be6401044924196bc4bcb51</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-01-23 20:48:50</sys_updated_on>
+        <sys_updated_on>2020-02-03 15:30:56</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

@@ -139,6 +139,30 @@ appUtils.prototype = {
 		}
 		return commonDeps;
 	},
+	addPoolMems: function(cluster, memberList) {
+		for (var i in memberList) {
+			var mem = memberList[i];
+			
+			// First Query pool member table to check if pool mem exsts
+			var gr = new GlideRecord(this.poolMemTable);
+			gr.addQuery('address', mem.member_ip);
+			gr.addQuery('port', mem.member_port);
+			gr.addQuery('cluster', cluster);
+			gr.addQuery('pool', mem.pool);
+			gr.query();
+			
+			// Insert a new record of query yields to results
+			if (!gr.next()) {
+				gr.initialize();
+				gr.setValue('address', mem.member_ip);
+				gr.setValue('port', mem.member_port);
+				gr.setValue('cluster', cluster);
+				gr.setValue('pool', mem.pool);
+				gr.setValue('verified', true);
+				gr.insert();
+			}
+		}
+	},
 	removePoolMems: function(cluster, memberList) {
 		for (var i in memberList) {
 			var mem = memberList[i];
@@ -155,19 +179,30 @@ appUtils.prototype = {
 			}
 		}
 	},
+	removeVs: function(cluster, vsName) {
+		var gr = new GlideRecord(this.vsTable);
+		gr.addQuery('name', vsName);
+		gr.addQuery('cluster', cluster);
+		gr.query();
+
+		if (gr.next()) {
+			gr.deleteRecord();
+		}
+		
+	},
     type: 'appUtils'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-01-22 20:41:39</sys_created_on>
         <sys_id>a98684c91b26001044924196bc4bcb04</sys_id>
-        <sys_mod_count>51</sys_mod_count>
+        <sys_mod_count>53</sys_mod_count>
         <sys_name>appUtils</sys_name>
         <sys_package display_value="F5_SSC_PT" source="x_209235_f5_ssc_pt">2cfdd0731b42001044924196bc4bcb69</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="F5_SSC_PT">2cfdd0731b42001044924196bc4bcb69</sys_scope>
         <sys_update_name>sys_script_include_a98684c91b26001044924196bc4bcb04</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-01-28 14:56:42</sys_updated_on>
+        <sys_updated_on>2020-02-03 15:23:48</sys_updated_on>
     </sys_script_include>
 </record_update>
